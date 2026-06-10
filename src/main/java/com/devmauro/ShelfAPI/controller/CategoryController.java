@@ -4,6 +4,7 @@ package com.devmauro.ShelfAPI.controller;
 import com.devmauro.ShelfAPI.dto.CategoryDto;
 import com.devmauro.ShelfAPI.dto.CategoryDtoResponse;
 import com.devmauro.ShelfAPI.service.CategoryService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
@@ -39,13 +40,13 @@ public class CategoryController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void save(@RequestBody CategoryDto categoryDto) {
+    public void save(@RequestBody @Valid CategoryDto categoryDto) {
         categoryService.save(categoryDto);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable Integer id, @RequestBody CategoryDto categoryDto) {
+    public void update(@PathVariable @Valid Integer id, @RequestBody CategoryDto categoryDto) {
         categoryService.update(id, categoryDto);
     }
 

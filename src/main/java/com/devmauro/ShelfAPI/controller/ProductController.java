@@ -3,6 +3,7 @@ package com.devmauro.ShelfAPI.controller;
 import com.devmauro.ShelfAPI.dto.ProductDto;
 import com.devmauro.ShelfAPI.dto.ProductDtoResponse;
 import com.devmauro.ShelfAPI.service.ProductService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
@@ -32,13 +33,13 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveProduct(@RequestBody ProductDto productDto) {
+    public void saveProduct(@RequestBody @Valid ProductDto productDto) {
         productService.saveProduct(productDto);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void updateProduct(@RequestBody ProductDto productDto, @PathVariable Integer id) {
+    public void updateProduct(@RequestBody @Valid ProductDto productDto, @PathVariable Integer id) {
         productService.updateProduct(id, productDto);
     }
 
