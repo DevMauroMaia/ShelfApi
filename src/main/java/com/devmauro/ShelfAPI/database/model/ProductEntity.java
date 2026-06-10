@@ -1,17 +1,15 @@
 package com.devmauro.ShelfAPI.database.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
 // Marca essa classe como uma tabela no banco de dados
 @Entity
-// Lombok: gera getters, setters, equals, hashCode e toString automaticamente
-@Data
+
+@Getter
+@Setter
 // Lombok: gera um construtor com todos os campos — obrigatório para o @Builder funcionar
 @AllArgsConstructor
 // Lombok: gera um construtor vazio — obrigatório para o JPA funcionar
